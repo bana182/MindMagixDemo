@@ -1,0 +1,18 @@
+.container {
+    border: 1px solid;
+    position: relative;
+    top: 63px;
+    padding: 85px;
+    width: 50%;
+    left: 30%
+}
+
+.detailContainer table tr {
+    text-align: left;
+}
+
+.imageContainer {
+    position: absolute;
+    left: 71%;
+    top: 84px;
+}
