@@ -4,21 +4,21 @@ import { EmployeeList } from '../components/employeeList/EmployeeList'
 import style from './EmployeeContainer.module.css'
 import axios from 'axios'
 import * as actionTypes from '../store/actions/actionsTypes'
-import { fetchEmployeeAction } from '../store/actions/Actions'
+import { fetchEmployeeList } from '../store/thunk/thunk'
 
 class Employees extends Component {
 
     componentDidMount() {
-        this.fetchEmployee()
+        this.props.fetchEmployees()
     }
 
-    fetchEmployee() {
+    /* fetchEmployee() {
        axios.get('https://reqres.in/api/users?page=2').then( response => {
             console.log(response)
             const { data: { data } } = response
             this.props.fetchEmployees(data)
         })
-    }
+    }*/
 
     showDetail = (employeeId) => {
         console.log('this.props', this.props)
@@ -51,7 +51,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchEmployees: (data) => dispatch(fetchEmployeeAction(data)),
+        fetchEmployees: () => dispatch(fetchEmployeeList()),
         deleteEmployee: (id) => dispatch({type: actionTypes.DELETE_EMPLOYEE, payload: { id }})
     }
 }

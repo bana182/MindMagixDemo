@@ -7,10 +7,12 @@ import EmployeeDetailContainer from './containers/EmployeeDetailContainer'
 
 //Redux related imports
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import emloyeeReducer from './store/reducers/employeeReducer'
+import thunk from 'redux-thunk'
 
-const store = createStore(emloyeeReducer)
+const store = createStore(emloyeeReducer, applyMiddleware(thunk))
+
 class App extends Component {
     constructor (props) {
       super(props);
