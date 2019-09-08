@@ -5,7 +5,12 @@ import {NotFound} from './containers/NotFound'
 import EmployeeContainer from './containers/EmployeeContainer'
 import EmployeeDetailContainer from './containers/EmployeeDetailContainer'
 
+//Redux related imports
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import emloyeeReducer from './store/reducers/employeeReducer'
 
+const store = createStore(emloyeeReducer)
 class App extends Component {
     constructor (props) {
       super(props);
@@ -13,7 +18,7 @@ class App extends Component {
 
     render() {
         return (
-          <div>
+          <Provider store={store}>
             <Router>
               <header className="App-header">
                 <ul>
@@ -29,7 +34,7 @@ class App extends Component {
                 <Route component={NotFound} />
               </Switch>
             </Router>
-          </div>
+          </Provider>
         )
     }
 }
