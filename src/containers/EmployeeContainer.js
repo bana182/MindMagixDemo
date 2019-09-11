@@ -21,12 +21,10 @@ class Employees extends Component {
     }*/
 
     showDetail = (employeeId) => {
-        console.log('this.props', this.props)
         this.props.history.push(`/userdetail/${employeeId}`)
     }
     render() {
         const { employeeList } = this.props
-        console.log('this.props', this.props)
         return (
             <div className={style.wrapper}>
                 <div className={ style.container }>
@@ -51,8 +49,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchEmployees: () => dispatch(fetchEmployeeList()),
-        deleteEmployee: (id) => dispatch({type: actionTypes.DELETE_EMPLOYEE, payload: { id }})
+        fetchEmployees: () => dispatch(fetchEmployeeList())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Employees)

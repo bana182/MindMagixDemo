@@ -11,12 +11,6 @@ const employeeReducer = (state = initialState, action) => {
                     ...state,
                     employeeList: action.payload
                 }
-            
-            case actionTypes.DELETE_EMPLOYEE:
-                return {
-                    ...state,
-                    employeeList: action.payload.employeeList
-                }
             default:
                 return state
         }
