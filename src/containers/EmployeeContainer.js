@@ -6,7 +6,7 @@ import axios from 'axios'
 import * as actionTypes from '../store/actions/actionsTypes'
 import { fetchEmployeeList } from '../store/thunk/thunk'
 
-class Employees extends Component {
+export class Employees extends Component {
 
     componentDidMount() {
         this.props.fetchEmployees()
